@@ -1,9 +1,15 @@
+.container-shop{padding-top: 76px;}
+.container-shop .header-search{background: #fff;position: fixed;z-index: 10;top: 0;left: 0;right: 0;}
+.container-shop .shop-tab{background: #fff;position: fixed;z-index: 10;top: 36px;left: 0;right: 0;}
+
 .shop-banner img{display: block;}
 .shop-banner .swiper-pagination{line-height: 0;padding: 2px 0;}
 .shop-banner .swiper-pagination-bullet{background: none;border: 1px solid #000;width: 8px;height: 8px;-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
 .shop-banner .swiper-pagination-bullet-active{background: #f55c54;border-color: #f55c54;}
 
-.shop-tab{text-align: center;border-bottom: 1px solid #ccc;height: 40px;overflow:initial;}
+.shop-tab{text-align: center;height: 40px;}
+.shop-tab .swiper-wrapper{border-bottom: 1px solid #ccc;height: 39px;}
+.shop-tab .swiper-slide{height: 39px;}
 .shop-tab .swiper-slide a{display: block;line-height: 39px;}
 .shop-tab .swiper-slide.active{border-bottom:1px solid #f55c54;}
 .shop-tab .swiper-slide.active a{color: #f55c54;}
@@ -21,7 +27,7 @@
 .shop-goodRmd li .tag{position: absolute;right: 0;bottom: 0;font-size: 12px;line-height: 1em;color: #fff;background: #666;padding: 4px;font-style: normal}
 
 .shop-typeList{padding: 0 10px;}
-.shop-typeList .tab{margin-bottom: 10px;overflow-y:initial;overflow-x:hidden;}
+.shop-typeList .tab{padding-bottom: 10px;}
 .shop-typeList .tab .swiper-slide img{display: block;position: relative;z-index: 2;}
 .shop-typeList .tab .swiper-slide a{display: block;padding: 3px;border: 1px solid #fff;-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
 .shop-typeList .tab .swiper-slide a:after{content: '';position: absolute;z-index: 1;left: 50%;bottom: 0;margin: 0 0 -6px -7px;width: 12px;height: 12px;border-radius: 4px;border-bottom-left-radius: 0;border-top-right-radius: 0;border: 1px solid #fff;border-left: none;border-top: none;background: #fff;-webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); -o-transform: rotate(45deg); transform: rotate(45deg);-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
@@ -37,7 +43,7 @@
 .shop-typeList .list li .tag{font-size: 12px;line-height: 1em;float: right;margin-top: -17px;-webkit-transform: scale(.7); -ms-transform: scale(.7); -o-transform: scale(.7); transform: scale(.7);}
 .shop-typeList .list li .tag i{font-style: normal;display: inline-block;margin-left: 4px;vertical-align: middle;border: 1px solid #ccc;color: #f55c54;border-radius: 2px;padding:2px 4px;}
 
-.s-listTab{text-align: center;border-bottom: 2px solid #ccc;height: 40px;overflow:initial;}
+.s-listTab{position: fixed;background: #fff;z-index: 10;top: 0;left: 0;right: 0;text-align: center;border-bottom: 2px solid #ccc;height: 40px;}
 .s-listTab ul{display: -webkit-flex; display: -moz-flex; display: -ms-flex; display: -o-flex; display: flex;}
 .s-listTab li{-webkit-flex:1;flex:1;}
 .s-listTab li a{display: block;line-height: 40px;}
@@ -53,11 +59,20 @@
 .s-listAll li .tag{font-size: 12px;line-height: 1em;float: right;margin-top: -17px;-webkit-transform: scale(.7); -ms-transform: scale(.7); -o-transform: scale(.7); transform: scale(.7);}
 .s-listAll li .tag i{font-style: normal;display: inline-block;margin-left: 4px;vertical-align: middle;border: 1px solid #ccc;color: #f55c54;border-radius: 2px;padding:2px 4px;}
 
+.search-history{padding: 0 15px;margin-bottom: 30px;}
+.search-history h3{font-weight: normal;font-size: 13px;}
+.search-history .btn-del{float: right;font-size: 12px;line-height: 1em;padding: 2px 4px;border: 1px solid #999;margin-top: -22px;}
+.search-history .list{font-size: 0;line-height: 0;margin: 0 -5px;padding-top: 10px;}
+.search-history .list li{display: inline-block;margin:5px;font-size: 12px;border: 1px solid #ccc;font-size: 14px;line-height: 1em;padding: 3px;}
+.search-history .tip{display: none;font-size: 12px;color: #999;text-align: center;}
 
 
-
-
-
+.search-recommend{padding: 0 15px;margin-bottom: 30px;}
+.search-recommend h3{font-weight: normal;font-size: 13px;}
+.search-recommend .btn-ctrl{float: right;font-size: 12px;line-height: 1em;padding: 2px 4px;border: 1px solid #999;margin-top: -22px;}
+.search-recommend .list{display: none;font-size: 0;line-height: 0;margin: 0 -5px;padding-top: 10px;}
+.search-recommend .list li{display: inline-block;margin:5px;font-size: 12px;border: 1px solid #ccc;font-size: 14px;line-height: 1em;padding: 3px;}
+.search-recommend .tip{font-size: 12px;color: #999;text-align: center;}
 
 
 
