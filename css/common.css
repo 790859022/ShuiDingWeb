@@ -77,11 +77,18 @@ box-shadow: inset 0 0 20px 0 #f2f2f0 ;display: block;width: 100%;border-width: 0
 .header-search .cart .num{font-style: normal;font-size: 12px;width: 16px;height: 16px;border-radius: 100%;text-align: center;line-height: 16px;position: absolute;right: -5px;top: 0;background: #189fd1;color: #fff;}
 
 
-.icon-back{position: relative;width: 20px;height: 20px;display: block;}
+.icon-back{position: relative;width: 20px;height: 20px;display:inline-block;vertical-align: middle;}
 .icon-back:after{content: '';position: absolute;left: 50%;top: 50%;margin: -6px 0 0 -6px;-webkit-transform: rotate(-45deg);
 -ms-transform: rotate(-45deg);
 -o-transform: rotate(-45deg);
 transform: rotate(-45deg);border: 1px solid #000;border-right: 0;border-bottom: 0;border-radius: 1px;width: 12px;height: 12px;}
+
+.icon-next{position: relative;width: 20px;height: 20px;display:inline-block;vertical-align: middle;}
+.icon-next:after{content: '';position: absolute;left: 50%;top: 50%;margin: -6px 0 0 -6px;-webkit-transform: rotate(135deg);
+-ms-transform: rotate(135deg);
+-o-transform: rotate(135deg);
+transform: rotate(135deg);border: 1px solid #000;border-right: 0;border-bottom: 0;border-radius: 1px;width: 12px;height: 12px;}
+
 
 .search-header{padding:5px 50px 0 40px;margin-bottom: 20px;}
 .search-header .btn-return{float: left;margin:5px 0 0 -30px;width: 30px;height: 22px;}
