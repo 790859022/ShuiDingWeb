@@ -1,23 +1,22 @@
 ;
 (function() {
-
 	function _scrollLoadData(settings) {
 		var _this = this;
 		var _settings = {
+			scrollContainer: window,
 			container: '',
 			currentPage: 1,
 			items: 10,
-			waitText: '加载中...',
-			loadedText: '没有数据了',
+			waitText: '更多数据',
+			loadedText: '<span class="icon"></span>没有更多了...',
 			requestData: function(page, rows) {
 
-			},
+			}
 		};
-
 
 		_this.settings = $.extend({}, _settings, settings);
 
-		_this.window = $(window);
+		_this.scrollContainer = $(_this.settings.scrollContainer);
 		_this.container = $(_this.settings.container);
 		_this.waitLayer = $('<div></div>', {
 			'class': 'scroll-load-wait'
@@ -48,40 +47,43 @@
 
 			_this.settings.requestData && _this.settings.requestData(_this.settings.currentPage, _this.settings.pageRows, function(data) {
 				_this.settings.currentPage++;
+
 				if (data) {
 					_this.settings.loaded = true;
+					_this.waitLayer.html(_this.settings.waitText);
+
+					//初始化是如果加载数据条目过少，则需要请求多次
+					//例：初始化加载 1 条数据，完成后高度不够一屏幕无法触发滚动，就无法实现滚动加载，因此需要判断加载后是否还要自动加载
+					//注：目前此滚动加载有个问题：无法得知图片是否加载完成，由于图片有占位高可能导致初始load 2 次
+					_this.loadFunc();
+
 				} else {
-					_this.waitLayer.html(_this.settings.loadedText);
+					data == null ? _this.waitLayer.hide() : _this.waitLayer.html(_this.settings.loadedText);
 				}
 			});
 
 		},
-		scroll: function() {
+		loadFunc: function() {
 			var _this = this;
-			var _winH = _this.window.height();
-			var _scrollTop = _this.window.scrollTop();
+			var _winH = _this.scrollContainer.outerHeight(true) + _this.scrollContainer.offset().top;
+			var _scrollTop = _this.scrollContainer.scrollTop();
 			var _waitLayerTop = _this.waitLayer.offset().top;
 
+			if (_winH > (_waitLayerTop + _this.waitLayer.outerHeight(true) - 10)) {
+				_this.settings.loaded = false;
+				_this.waitLayer.html('加载中...');
+				_this.request();
+			}
+		},
+		scroll: function() {
+			var _this = this;
+
 			_this.settings.loaded = true;
-			srollFunc();
-			_this.window.bind('scroll', function() {
-				console.log(_this.settings.loaded);
-				_this.settings.loaded && srollFunc();
+			_this.loadFunc();
+			_this.scrollContainer.bind('scroll', function() {
+				_this.settings.loaded && _this.loadFunc();
 
 			});
-
-			function srollFunc() {
-				_winH = _this.window.height();
-				_scrollTop = _this.window.scrollTop();
-				_waitLayerTop = _this.waitLayer.offset().top;
-				// console.log((_scrollTop + _winH) + "|||" + (_waitLayerTop + _this.waitLayer.outerHeight(true) - 10));
-				if ((_scrollTop + _winH) > (_waitLayerTop + _this.waitLayer.outerHeight(true) - 10)) {
-					_this.settings.loaded = false;
-					_this.request();
-					_this.waitLayer.html('加载数据了');
-				}
-
-			}
 		}
 	};
 
@@ -103,10 +105,8 @@ scrollLoadData({
 		// currentPage 当前加载的页码
 		// pageRows 每页加载多少条
 		// callback 加载完成后的回调函数
-		// callback 说明：由于加载新数据为动态加载ajax，是用户自定义方法并非组件内部ajax无法控制；保证在数据请求过程中不能再次请求发送请求，callback内包含参数的值为true/false;
-		// true 表示仍有数据，false表示没有数据
-
-
+		// callback 说明：由于加载新数据为动态加载ajax，是用户自定义方法并非组件内部ajax无法控制；保证在数据请求过程中不能再次请求发送请求，callback内包含参数的值为true/false/null;
+		// true 表示仍有数据，false 表示没有可加载数据 null 表示没有一条数据
 
 		//ajax请求函数
 		pageLoad(currentPage, pageRows, callback);
@@ -120,7 +120,7 @@ function pageLoad(page, rows, callback) {
 	var userUrl = basePath + "/userBrowsHis/list";
 	$.ajax({
 		url: '',
-		type:'',
+		type: '',
 		data: {},
 		dataType: ''
 	}).done(function(data) {
@@ -138,5 +138,5 @@ function pageLoad(page, rows, callback) {
 			}
 		}
 
-	}).fail(function(e){});
+	}).fail(function(e) {});
 }
