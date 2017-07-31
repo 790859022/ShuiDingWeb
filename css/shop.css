@@ -112,16 +112,18 @@ transform: scale(.8);}
 .detail-other .img .num{background: #666;color: #fff;font-size: 12px;width: 30px;height: 30px;display: inline-block;line-height: 30px;text-align: center;vertical-align: middle;border-radius: 100%;}
 .detail-other .img a{float: right;margin-right: -10px;font-size: 14px;position: relative;line-height: 30px;}
 .detail-other .img a .icon-next:after{width: 8px;height: 8px;}
-.detail-price ul{padding: 0 15px;display: -webkit-flex; display: -moz-flex; display: -ms-flex; display: -o-flex; display: flex;}
-.detail-price li{-webkit-flex:1;flex:1;}
-.detail-price li .sm{font-size: 12px;color: #999;}
+.detail-price{position: fixed;z-index: 10;bottom: 45px;width: 100%;background: #fff;}
+.detail-price ul{padding: 5px 15px;display: -webkit-flex; display: -moz-flex; display: -ms-flex; display: -o-flex; display: flex;}
+.detail-price li{-webkit-flex:1;flex:1;font-size: 12px;line-height: 1em;}
+.detail-price li .sm{color: #999;}
+.detail-price li .price{height: 20px;line-height: 20px;}
 .detail-price li .price span{font-size: 16px;color: #f55c54;}
 .detail-price li .price del{font-size: 12px;color: #ccc;padding-left: 10px;}
-.detail-price li .xl{padding-top: 27px;text-align: center;}
+.detail-price li .xl{padding-top: 20px;text-align: center;}
 .detail-price li .btn-addCart{text-align: center;float: right;}
-.detail-price li .btn-addCart .icon{display: block;width: 27px;height: 27px;margin: 0 auto;background:url(../images/css-spd.png) -70px -70px no-repeat;-webkit-background-size: 600px 600px; background-size: 600px 600px;}
+.detail-price li .btn-addCart .icon{display: block;width: 20px;height: 20px;margin: 0 auto;background:url(../images/css-spd.png) -46px -46px no-repeat;-webkit-background-size: 400px 400px; background-size: 400px 400px;}
 
-.bottom-menu{position: fixed;z-index: 10px;width: 100%;bottom: 0;left: 0;}
+.bottom-menu{position: fixed;z-index: 10;background: #fff;width: 100%;bottom: 0;left: 0;}
 .bottom-menu ul{height: 45px;border-top: 1px solid #eee;display: -webkit-flex; display: -moz-flex; display: -ms-flex; display: -o-flex; display: flex;}
 .bottom-menu li{color: #999;-webkit-flex:1;flex:1;text-align: center;-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
 .bottom-menu li:nth-child(1){border-right: 1px solid #eee;}
